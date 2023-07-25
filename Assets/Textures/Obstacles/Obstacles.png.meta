@@ -164,10 +164,10 @@ TextureImporter:
       name: Obstacles_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 513
-        width: 250
-        height: 46
+        x: 176
+        y: 571
+        width: 40
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,9 +186,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 374
+        y: 513
         width: 250
-        height: 53
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,9 +207,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 269
+        y: 374
         width: 250
-        height: 47
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,7 +228,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 136
+        y: 269
         width: 250
         height: 47
       alignment: 0
@@ -249,6 +249,27 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 136
+        width: 250
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa3a9433803bae4cb45e506057aa6d9
+      internalID: 996675152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obstacles_7
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 250
         height: 46
@@ -259,8 +280,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baa3a9433803bae4cb45e506057aa6d9
-      internalID: 996675152
+      spriteID: 71e18eef9414944488bc1f8b48a71b56
+      internalID: 2110487246
       vertices: []
       indices: 
       edges: []
@@ -283,6 +304,7 @@ TextureImporter:
       Obstacles_4: 1618268682
       Obstacles_5: 2119562991
       Obstacles_6: 996675152
+      Obstacles_7: 2110487246
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
