@@ -123,9 +123,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 630
+        y: 627
         width: 250
-        height: 47
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,10 +143,10 @@ TextureImporter:
       name: Obstacles_1
       rect:
         serializedVersion: 2
-        x: 14
-        y: 567
-        width: 57
-        height: 55
+        x: 11
+        y: 564
+        width: 63
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +164,10 @@ TextureImporter:
       name: Obstacles_2
       rect:
         serializedVersion: 2
-        x: 176
-        y: 571
-        width: 40
-        height: 39
+        x: 173
+        y: 568
+        width: 46
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,9 +186,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 513
+        y: 510
         width: 250
-        height: 46
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: Obstacles_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 374
-        width: 250
-        height: 53
+        x: 2
+        y: 433
+        width: 246
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,9 +228,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 269
+        y: 371
         width: 250
-        height: 47
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,9 +249,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 136
+        y: 266
         width: 250
-        height: 47
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,9 +270,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 133
         width: 250
-        height: 46
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,6 +282,27 @@ TextureImporter:
       bones: []
       spriteID: 71e18eef9414944488bc1f8b48a71b56
       internalID: 2110487246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obstacles_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 250
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3969860f06b114bbac6e41503869f4
+      internalID: 2044972151
       vertices: []
       indices: 
       edges: []
@@ -305,6 +326,7 @@ TextureImporter:
       Obstacles_5: 2119562991
       Obstacles_6: 996675152
       Obstacles_7: 2110487246
+      Obstacles_8: 2044972151
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
