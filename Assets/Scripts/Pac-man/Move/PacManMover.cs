@@ -4,7 +4,13 @@ public class PacManMover : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
+    private const string LeftTrigger = "Move Left";
+    private const string RightTrigger = "Move Right";
+    private const string DownTrigger = "Move Down";
+    private const string UpTrigger = "Move Up";
+
     private Rigidbody2D _rb;
+    private Animator _animator;
     private float _horizontalDistance;
     private float _verticalDistance;
 
@@ -15,14 +21,6 @@ public class PacManMover : MonoBehaviour
     public bool IsMovingUp { get; private set; }
 
     public bool IsMovingDown { get; private set; }
-
-    private void Update()
-    {
-        if (IsMovingLeft) _horizontalDistance = -_speed;
-        if (IsMovingDown) _verticalDistance = -_speed;
-        if (IsMovingRight) _horizontalDistance = _speed;
-        if (IsMovingUp) _verticalDistance = _speed;
-    }
 
     private void FixedUpdate()
     {
@@ -36,27 +34,39 @@ public class PacManMover : MonoBehaviour
     {
         IsMovingLeft = true;
         IsMovingRight = IsMovingUp = IsMovingDown = false;
+        _horizontalDistance = -_speed;
+        _animator.SetTrigger(LeftTrigger);
     }
 
     public void SwitchRightEventDataDown()
     {
         IsMovingRight = true;
         IsMovingLeft = IsMovingUp = IsMovingDown = false;
+        _horizontalDistance = _speed;
+        _animator.SetTrigger(RightTrigger);
     }
 
     public void SwitchUpEventDataDown()
     {
         IsMovingUp = true;
         IsMovingLeft = IsMovingRight = IsMovingDown = false;
+        _verticalDistance = _speed;
+        _animator.SetTrigger(UpTrigger);
     }
 
     public void SwitchDownEventDataDown()
     {
         IsMovingDown = true;
         IsMovingLeft = IsMovingUp = IsMovingRight = false;
+        _verticalDistance = -_speed;
+        _animator.SetTrigger(DownTrigger);
     }
 
     /* Method for GameInitializer.cs */
 
-    public void InitializeRigidbody() => _rb = GetComponent<Rigidbody2D>();
+    public void Initialize()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+    }
 }
