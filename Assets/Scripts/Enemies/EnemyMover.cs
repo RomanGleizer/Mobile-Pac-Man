@@ -7,24 +7,16 @@ public class EnemyMover : MonoBehaviour
     public const float EnemySpeed = 1f;
 
     private Mover _enemyMover;
-
-    //private void Update()
-    //{
-    //    print(transform.position.y);
-    //}
+    private TurningPoint _point;
 
     private async void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<TurningPoint>())
+        if (collision.TryGetComponent(out TurningPoint point))
         {
-            var point = collision.GetComponent<TurningPoint>();
-            var y = point.Y;
-            var randomDirection = point.Directions[Random.Range(0, point.Directions.Length)];
-            if (transform.position.y >= y - 0.1f || transform.position.y <= y + 0.1f)
-            {
-                await Task.Delay(250);
-                ChangeDirectionalPath(randomDirection);
-            }
+            _point = point;
+            var randomDirection = _point.Directions[Random.Range(0, _point.Directions.Length)];
+            await Task.Delay(250);
+            ChangeDirectionalPath(randomDirection);
         }
     }
 
@@ -33,16 +25,16 @@ public class EnemyMover : MonoBehaviour
         switch (dir)
         {
             case Directions.Left:
-                _enemyMover.Move(Directions.Left, 0, -EnemySpeed, MoveTriggers.LeftTrigger);
+                _enemyMover.Move(Directions.Left, 0, -EnemySpeed, MoveTriggers.LeftTrigger, _point);
                 break;
             case Directions.Right:
-                _enemyMover.Move(Directions.Right, 0, EnemySpeed, MoveTriggers.RightTrigger);
+                _enemyMover.Move(Directions.Right, 0, EnemySpeed, MoveTriggers.RightTrigger, _point);
                 break;
             case Directions.Up:
-                _enemyMover.Move(Directions.Up, EnemySpeed, 0, MoveTriggers.UpTrigger);
+                _enemyMover.Move(Directions.Up, EnemySpeed, 0, MoveTriggers.UpTrigger, _point);
                 break;
             case Directions.Down:
-                _enemyMover.Move(Directions.Down, -EnemySpeed, 0, MoveTriggers.DownTrigger);
+                _enemyMover.Move(Directions.Down, -EnemySpeed, 0, MoveTriggers.DownTrigger, _point);
                 break;
             default: break;
         }

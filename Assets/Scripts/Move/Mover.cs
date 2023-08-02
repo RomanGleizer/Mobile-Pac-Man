@@ -19,12 +19,18 @@ public class Mover : MonoBehaviour
             _rigidBody.velocity = new Vector2(_horizontal, 0);
     }
 
-    public void Move(Directions direction, float verticalSpeed, float horizontalSpeed, string trigger)
+    public void Move(
+        Directions direction, 
+        float verticalSpeed, 
+        float horizontalSpeed, 
+        string trigger,
+        TurningPoint point)
     {
         UpdateDirections(direction);
         _vetrical = verticalSpeed;
         _horizontal = horizontalSpeed;
         _animator.SetTrigger(trigger);
+        if (point != null) transform.position = new Vector3(point.X, point.Y, 0);
     }
     
     public void UpdateDirections(Directions direction)
