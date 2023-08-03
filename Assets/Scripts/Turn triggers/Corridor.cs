@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Corridor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Button[] _moveButtons;
 
-    // Update is called once per frame
-    void Update()
+    public void SwitchMoveButtons(bool state)
     {
-        
+        foreach (var button in _moveButtons)
+            button.gameObject.SetActive(state);
     }
 }

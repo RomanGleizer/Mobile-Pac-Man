@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 [RequireComponent(typeof(Mover))]
 public class EnemyMover : MonoBehaviour
 {
-    public const float EnemySpeed = 1f;
+    [SerializeField] private float _speed;
 
-    private Mover _enemyMover;
+    private Mover _mover;
     private TurningPoint _point;
 
     private async void OnTriggerEnter2D(Collider2D collision)
@@ -25,16 +25,16 @@ public class EnemyMover : MonoBehaviour
         switch (dir)
         {
             case Directions.Left:
-                _enemyMover.Move(Directions.Left, 0, -EnemySpeed, MoveTriggers.LeftTrigger, _point);
+                _mover.HandMove(Directions.Left, 0, -_speed, MoveTriggers.LeftTrigger, _point);
                 break;
             case Directions.Right:
-                _enemyMover.Move(Directions.Right, 0, EnemySpeed, MoveTriggers.RightTrigger, _point);
+                _mover.HandMove(Directions.Right, 0, _speed, MoveTriggers.RightTrigger, _point);
                 break;
             case Directions.Up:
-                _enemyMover.Move(Directions.Up, EnemySpeed, 0, MoveTriggers.UpTrigger, _point);
+                _mover.HandMove(Directions.Up, _speed, 0, MoveTriggers.UpTrigger, _point);
                 break;
             case Directions.Down:
-                _enemyMover.Move(Directions.Down, -EnemySpeed, 0, MoveTriggers.DownTrigger, _point);
+                _mover.HandMove(Directions.Down, -_speed, 0, MoveTriggers.DownTrigger, _point);
                 break;
             default: break;
         }
@@ -42,7 +42,7 @@ public class EnemyMover : MonoBehaviour
 
     public void Initialize()
     {
-        _enemyMover = GetComponent<Mover>();
-        _enemyMover.Initialize();
+        _mover = GetComponent<Mover>();
+        _mover.Initialize();
     }
 }

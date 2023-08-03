@@ -19,13 +19,15 @@ public class Mover : MonoBehaviour
             _rigidBody.velocity = new Vector2(_horizontal, 0);
     }
 
-    public void Move(
+    public void HandMove(
         Directions direction, 
         float verticalSpeed, 
         float horizontalSpeed, 
         string trigger,
         TurningPoint point)
     {
+        if (gameObject.activeSelf == false || gameObject == null) return;
+
         UpdateDirections(direction);
         _vetrical = verticalSpeed;
         _horizontal = horizontalSpeed;
