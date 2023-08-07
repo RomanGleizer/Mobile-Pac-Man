@@ -33,7 +33,7 @@ public class EnemyMover : MonoBehaviour
         {
             _point = point;
             var randomDirection = _point.Directions[UnityEngine.Random.Range(0, _point.Directions.Length)];
-            await Task.Delay(225);
+            await Task.Delay(210);
             _moves[randomDirection].Invoke();
         }
     }

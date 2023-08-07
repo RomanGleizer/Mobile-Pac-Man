@@ -8,6 +8,8 @@ public class PacManDeathHandler : MonoBehaviour
     [SerializeField] private EnemyMover[] _enemies;
     [SerializeField] private Image[] _pacManAttempts;
     [SerializeField] private int _attemptsNumber;
+    [SerializeField] private MenuHandler _menuHandler;
+    [SerializeField] private Menu _deathMenu;
 
     public EnemyMover[] Enemies => _enemies;
 
@@ -20,8 +22,8 @@ public class PacManDeathHandler : MonoBehaviour
 
     private void Death()
     {
+        _menuHandler.SwitchMenuState(_deathMenu);
         RemoveCurrentPacMan();
-        Time.timeScale = 0.0f;
     }
 
     private void Reborn()

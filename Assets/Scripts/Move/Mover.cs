@@ -20,17 +20,6 @@ public class Mover : MonoBehaviour
         if (_isMoveRight || _isMoveLeft) _rigidBody.velocity = new Vector2(_horizontal, 0);
     }
 
-    public void HandMove(Directions direction, float speed)
-    {
-        UpdateDirections(direction);
-
-        if (direction is Directions.Left || direction is Directions.Right) _horizontal = speed;
-        else _vetrical = speed;
-
-        if (_turningPoint != null)
-            transform.position = new Vector3(_turningPoint.X, _turningPoint.Y, 0);
-    }
-
     public void MoveRight() => HandMove(Directions.Left, Speed);
 
     public void MoveLeft() => HandMove(Directions.Right, -Speed);
@@ -41,7 +30,18 @@ public class Mover : MonoBehaviour
 
     public void UpdateTurningPoint(TurningPoint point) => _turningPoint = point;
 
-    public void UpdateDirections(Directions direction)
+    private void HandMove(Directions direction, float speed)
+    {
+        UpdateDirections(direction);
+
+        if (direction is Directions.Left || direction is Directions.Right) _horizontal = speed;
+        else _vetrical = speed;
+
+        if (_turningPoint != null)
+            transform.position = new Vector3(_turningPoint.X, _turningPoint.Y, 0);
+    }
+
+    private void UpdateDirections(Directions direction)
     {
         var moveCycle = GetCycleResult(direction);
         _isMoveLeft = moveCycle.Left;
@@ -50,7 +50,7 @@ public class Mover : MonoBehaviour
         _isMoveDown = moveCycle.Down;
     }
 
-    public (bool Left, bool Right, bool Up, bool Down) GetCycleResult(Directions dir)
+    private (bool Left, bool Right, bool Up, bool Down) GetCycleResult(Directions dir)
     {
         switch (dir)
         {

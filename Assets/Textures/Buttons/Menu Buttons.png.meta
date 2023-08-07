@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Buttons_0
+      name: Menu Buttons_0
       rect:
         serializedVersion: 2
         x: 0
@@ -133,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfec36e9d925774468f44e698789d201
-      internalID: 1480563890
+      spriteID: 3dc12dafe6ded064c85b369c869e1134
+      internalID: -73655267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buttons_1
+      name: Menu Buttons_1
       rect:
         serializedVersion: 2
         x: 180
@@ -154,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a30378c7aff8c474e8cde85fe75bd296
-      internalID: 1507674064
+      spriteID: fd4040b70e583384395d38723c122035
+      internalID: -1163794569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buttons_2
+      name: Menu Buttons_2
       rect:
         serializedVersion: 2
         x: 2
@@ -175,8 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82bdafca13fc74e40ae25f9d4120ad30
-      internalID: 2014687125
+      spriteID: 139caec26c7f47f49a685bb6b3a8ed16
+      internalID: 1956782565
       vertices: []
       indices: 
       edges: []
@@ -192,9 +192,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Buttons_0: 1480563890
-      Buttons_1: 1507674064
-      Buttons_2: 2014687125
+      Menu Buttons_0: -73655267
+      Menu Buttons_1: -1163794569
+      Menu Buttons_2: 1956782565
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
