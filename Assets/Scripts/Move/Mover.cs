@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
+    private const float Speed = 1.2f;
+
     private Animator _animator;
     private Rigidbody2D _rigidBody;
+    private TurningPoint _turningPoint;
     private bool _isMoveLeft;
     private bool _isMoveRight;
     private bool _isMoveUp;
@@ -22,19 +25,28 @@ public class Mover : MonoBehaviour
     public void HandMove(
         Directions direction, 
         float verticalSpeed, 
-        float horizontalSpeed, 
-        string trigger,
-        TurningPoint point)
+        float horizontalSpeed)
     {
-        if (gameObject.activeSelf == false || gameObject == null) return;
-
         UpdateDirections(direction);
         _vetrical = verticalSpeed;
         _horizontal = horizontalSpeed;
-        _animator.SetTrigger(trigger);
-        if (point != null) transform.position = new Vector3(point.X, point.Y, 0);
+
+        if (_turningPoint != null)
+            transform.position = new Vector3(_turningPoint.X, _turningPoint.Y, 0);
     }
-    
+
+    public void MoveRight()
+        => HandMove(Directions.Left, 0, Speed);
+
+    public void MoveLeft()
+        => HandMove(Directions.Right, 0, -Speed);
+
+    public void MoveUp()
+        => HandMove(Directions.Up, Speed, 0);
+
+    public void MoveDown()
+        => HandMove(Directions.Down, -Speed, 0);
+
     public void UpdateDirections(Directions direction)
     {
         var moveCycle = GetCycleResult(direction);
@@ -55,6 +67,9 @@ public class Mover : MonoBehaviour
             default: return (false, false, false, false);
         }
     }
+
+    public void UpdateTurningPoint(TurningPoint point)
+        => _turningPoint = point;
 
     public void Initialize()
     {

@@ -1,42 +1,34 @@
 using UnityEngine;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System;
 
 [RequireComponent(typeof(Mover))]
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private Vector3 _rebornPosition;
 
     private Mover _mover;
     private TurningPoint _point;
+    private Dictionary<Directions, Action> _moves;
+
+    public Dictionary<Directions, Action> Moves => _moves;
+
+    public Vector3 RebornPosition => _rebornPosition;
+
+    private void Update()
+    {
+        print($"{gameObject.name} {transform.position}");
+    }
 
     private async void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out TurningPoint point))
         {
             _point = point;
-            var randomDirection = _point.Directions[Random.Range(0, _point.Directions.Length)];
+            var randomDirection = _point.Directions[UnityEngine.Random.Range(0, _point.Directions.Length)];
             await Task.Delay(250);
-            ChangeDirectionalPath(randomDirection);
-        }
-    }
-
-    private void ChangeDirectionalPath(Directions dir)
-    {
-        switch (dir)
-        {
-            case Directions.Left:
-                _mover.HandMove(Directions.Left, 0, -_speed, MoveTriggers.LeftTrigger, _point);
-                break;
-            case Directions.Right:
-                _mover.HandMove(Directions.Right, 0, _speed, MoveTriggers.RightTrigger, _point);
-                break;
-            case Directions.Up:
-                _mover.HandMove(Directions.Up, _speed, 0, MoveTriggers.UpTrigger, _point);
-                break;
-            case Directions.Down:
-                _mover.HandMove(Directions.Down, -_speed, 0, MoveTriggers.DownTrigger, _point);
-                break;
-            default: break;
+            _moves[randomDirection].Invoke();
         }
     }
 
@@ -44,5 +36,13 @@ public class EnemyMover : MonoBehaviour
     {
         _mover = GetComponent<Mover>();
         _mover.Initialize();
+
+        _moves = new Dictionary<Directions, Action>
+        {
+            { Directions.Right, _mover.MoveRight },
+            { Directions.Left, _mover.MoveLeft },
+            { Directions.Down, _mover.MoveDown },
+            { Directions.Up, _mover.MoveUp },
+        };
     }
 }

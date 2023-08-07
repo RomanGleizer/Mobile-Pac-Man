@@ -11,7 +11,7 @@ public class CoinTaker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Coin>())
+        if (collision.GetComponent<Coin>() && gameObject.activeSelf)
         {
             _score += 5;
             collision.gameObject.SetActive(false);
