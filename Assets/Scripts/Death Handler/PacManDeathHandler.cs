@@ -9,6 +9,8 @@ public class PacManDeathHandler : MonoBehaviour
     [SerializeField] private Image[] _pacManAttempts;
     [SerializeField] private int _attemptsNumber;
 
+    public EnemyMover[] Enemies => _enemies;
+
     public void GetDamage()
     {
         _attemptsNumber--;

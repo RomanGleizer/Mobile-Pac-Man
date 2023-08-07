@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
+    private const float Speed = 1.2f;
+
     private Animator _animator;
     private Rigidbody2D _rigidBody;
+    private TurningPoint _turningPoint;
     private bool _isMoveLeft;
     private bool _isMoveRight;
     private bool _isMoveUp;
@@ -13,28 +16,31 @@ public class Mover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isMoveDown || _isMoveUp)
-            _rigidBody.velocity = new Vector2(0, _vetrical);
-        if (_isMoveRight || _isMoveLeft)
-            _rigidBody.velocity = new Vector2(_horizontal, 0);
+        if (_isMoveDown || _isMoveUp) _rigidBody.velocity = new Vector2(0, _vetrical);
+        if (_isMoveRight || _isMoveLeft) _rigidBody.velocity = new Vector2(_horizontal, 0);
     }
 
-    public void HandMove(
-        Directions direction, 
-        float verticalSpeed, 
-        float horizontalSpeed, 
-        string trigger,
-        TurningPoint point)
+    public void HandMove(Directions direction, float speed)
     {
-        if (gameObject.activeSelf == false || gameObject == null) return;
-
         UpdateDirections(direction);
-        _vetrical = verticalSpeed;
-        _horizontal = horizontalSpeed;
-        _animator.SetTrigger(trigger);
-        if (point != null) transform.position = new Vector3(point.X, point.Y, 0);
+
+        if (direction is Directions.Left || direction is Directions.Right) _horizontal = speed;
+        else _vetrical = speed;
+
+        if (_turningPoint != null)
+            transform.position = new Vector3(_turningPoint.X, _turningPoint.Y, 0);
     }
-    
+
+    public void MoveRight() => HandMove(Directions.Left, Speed);
+
+    public void MoveLeft() => HandMove(Directions.Right, -Speed);
+
+    public void MoveUp() => HandMove(Directions.Up, Speed);
+
+    public void MoveDown() => HandMove(Directions.Down, -Speed);
+
+    public void UpdateTurningPoint(TurningPoint point) => _turningPoint = point;
+
     public void UpdateDirections(Directions direction)
     {
         var moveCycle = GetCycleResult(direction);

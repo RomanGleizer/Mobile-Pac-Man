@@ -1904,7 +1904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07c947a1000ee34ba53df7f7ef92f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _rebornPosition: {x: 4, y: -1.66, z: 0}
 --- !u!114 &87548399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2712,7 +2712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07c947a1000ee34ba53df7f7ef92f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _rebornPosition: {x: 4, y: -1.66, z: 0}
 --- !u!114 &125995435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3738,7 +3738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07c947a1000ee34ba53df7f7ef92f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _rebornPosition: {x: 4, y: 1.53, z: 0}
 --- !u!114 &168781447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9628,13 +9628,13 @@ RectTransform:
   - {fileID: 1090684498}
   - {fileID: 1544738915}
   - {fileID: 116749686}
-  - {fileID: 950436055}
   - {fileID: 389946128}
   - {fileID: 809196647}
   - {fileID: 1877561157}
   - {fileID: 2129988340}
   - {fileID: 2082779187}
   - {fileID: 686108467}
+  - {fileID: 950436055}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12861,9 +12861,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1387792566}
-          m_TargetAssemblyTypeName: PacManMover, Assembly-CSharp
-          m_MethodName: SwitchLeftEventDataDown
+        - m_Target: {fileID: 1387792567}
+          m_TargetAssemblyTypeName: Mover, Assembly-CSharp
+          m_MethodName: MoveLeft
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -12873,9 +12873,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: PacManMover, Assembly-CSharp
-          m_MethodName: SwitchLeftEventDataDown
+        - m_Target: {fileID: 1358871364}
+          m_TargetAssemblyTypeName: Mover, Assembly-CSharp
+          m_MethodName: MoveLeft
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -12885,9 +12885,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: PacManMover, Assembly-CSharp
-          m_MethodName: SwitchLeftEventDataDown
+        - m_Target: {fileID: 776740210}
+          m_TargetAssemblyTypeName: Mover, Assembly-CSharp
+          m_MethodName: MoveLeft
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -17227,7 +17227,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathHandler: {fileID: 1133626593}
-  _speed: 1.2
 --- !u!1 &777262136
 GameObject:
   m_ObjectHideFlags: 0
@@ -24373,9 +24372,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1387792566}
-          m_TargetAssemblyTypeName: PacManMover, Assembly-CSharp
-          m_MethodName: SwitchUpEventDataDown
+        - m_Target: {fileID: 1387792567}
+          m_TargetAssemblyTypeName: Mover, Assembly-CSharp
+          m_MethodName: MoveUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -24385,9 +24384,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: PacManMover, Assembly-CSharp
-          m_MethodName: SwitchUpEventDataDown
+        - m_Target: {fileID: 1358871364}
+          m_TargetAssemblyTypeName: Mover, Assembly-CSharp
+          m_MethodName: MoveUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -24397,9 +24396,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: PacManMover, Assembly-CSharp
-          m_MethodName: SwitchUpEventDataDown
+        - m_Target: {fileID: 776740210}
+          m_TargetAssemblyTypeName: Mover, Assembly-CSharp
+          m_MethodName: MoveUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -32233,7 +32232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathHandler: {fileID: 1133626593}
-  _speed: 1.2
 --- !u!1 &1380514150
 GameObject:
   m_ObjectHideFlags: 0
@@ -32754,7 +32752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathHandler: {fileID: 1133626593}
-  _speed: 1.2
 --- !u!114 &1387792567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33031,9 +33028,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1387792566}
-          m_TargetAssemblyTypeName: PacManMover, Assembly-CSharp
-          m_MethodName: SwitchRightEventDataDown
+        - m_Target: {fileID: 1387792567}
+          m_TargetAssemblyTypeName: Mover, Assembly-CSharp
+          m_MethodName: MoveRight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -33043,9 +33040,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: PacManMover, Assembly-CSharp
-          m_MethodName: SwitchRightEventDataDown
+        - m_Target: {fileID: 1358871364}
+          m_TargetAssemblyTypeName: Mover, Assembly-CSharp
+          m_MethodName: MoveRight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -33055,9 +33052,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: PacManMover, Assembly-CSharp
-          m_MethodName: SwitchRightEventDataDown
+        - m_Target: {fileID: 776740210}
+          m_TargetAssemblyTypeName: Mover, Assembly-CSharp
+          m_MethodName: MoveRight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -43854,9 +43851,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1387792566}
-          m_TargetAssemblyTypeName: PacManMover, Assembly-CSharp
-          m_MethodName: SwitchDownEventDataDown
+        - m_Target: {fileID: 1387792567}
+          m_TargetAssemblyTypeName: Mover, Assembly-CSharp
+          m_MethodName: MoveDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -43866,9 +43863,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: PacManMover, Assembly-CSharp
-          m_MethodName: SwitchDownEventDataDown
+        - m_Target: {fileID: 1358871364}
+          m_TargetAssemblyTypeName: Mover, Assembly-CSharp
+          m_MethodName: MoveDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -43878,9 +43875,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: PacManMover, Assembly-CSharp
-          m_MethodName: SwitchDownEventDataDown
+        - m_Target: {fileID: 776740210}
+          m_TargetAssemblyTypeName: Mover, Assembly-CSharp
+          m_MethodName: MoveDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -47780,7 +47777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07c947a1000ee34ba53df7f7ef92f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _rebornPosition: {x: -4, y: 1.53, z: 0}
 --- !u!114 &1972238956
 MonoBehaviour:
   m_ObjectHideFlags: 0
