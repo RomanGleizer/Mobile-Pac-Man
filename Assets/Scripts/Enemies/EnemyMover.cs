@@ -6,26 +6,14 @@ using System;
 [RequireComponent(typeof(Mover))]
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] private Vector3 _rebornPosition;
-
     private Mover _mover;
     private TurningPoint _point;
     private Dictionary<Directions, Action> _moves;
+    private Vector3 _rebornPosition;
 
     public Dictionary<Directions, Action> Moves => _moves;
 
     public Vector3 RebornPosition => _rebornPosition;
-
-    private void Start()
-    {
-        _moves = new Dictionary<Directions, Action>
-        {
-            { Directions.Right, _mover.MoveRight },
-            { Directions.Left, _mover.MoveLeft },
-            { Directions.Down, _mover.MoveDown },
-            { Directions.Up, _mover.MoveUp },
-        };
-    }
 
     private async void OnTriggerEnter2D(Collider2D collision)
     {
@@ -40,6 +28,7 @@ public class EnemyMover : MonoBehaviour
 
     public void Initialize()
     {
+        _rebornPosition = new Vector3(transform.position.x - 0.53f, transform.position.y, 0);
         _mover = GetComponent<Mover>();
         _mover.Initialize();
 

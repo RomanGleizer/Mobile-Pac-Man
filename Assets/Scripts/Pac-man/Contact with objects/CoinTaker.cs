@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class CoinTaker : MonoBehaviour
 {
+    private const int MaxScore = 1330;
+
+    [SerializeField] private WinHandler _winHandler;
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private TextMeshProUGUI _playerScoreText;
 
     private int _score;
+
+    public int Score => _score;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,6 +22,8 @@ public class CoinTaker : MonoBehaviour
             collision.gameObject.SetActive(false);
             _scoreText.text = $"Score : {_score}";
             StartCoroutine(nameof(ShowAndHidePlayerScoreText));
+
+            if (_score == MaxScore) _winHandler.ShowWinMenu();
         }
     }
 

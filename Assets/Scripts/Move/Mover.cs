@@ -20,22 +20,24 @@ public class Mover : MonoBehaviour
         if (_isMoveRight || _isMoveLeft) _rigidBody.velocity = new Vector2(_horizontal, 0);
     }
 
-    public void MoveRight() => HandMove(Directions.Left, Speed);
+    public void MoveRight() => HandMove(Directions.Left, Speed, MoveTriggers.RightTrigger);
 
-    public void MoveLeft() => HandMove(Directions.Right, -Speed);
+    public void MoveLeft() => HandMove(Directions.Right, -Speed, MoveTriggers.LeftTrigger);
 
-    public void MoveUp() => HandMove(Directions.Up, Speed);
+    public void MoveUp() => HandMove(Directions.Up, Speed, MoveTriggers.UpTrigger);
 
-    public void MoveDown() => HandMove(Directions.Down, -Speed);
+    public void MoveDown() => HandMove(Directions.Down, -Speed, MoveTriggers.DownTrigger);
 
     public void UpdateTurningPoint(TurningPoint point) => _turningPoint = point;
 
-    private void HandMove(Directions direction, float speed)
+    private void HandMove(Directions direction, float speed, string trigger)
     {
         UpdateDirections(direction);
 
         if (direction is Directions.Left || direction is Directions.Right) _horizontal = speed;
         else _vetrical = speed;
+
+        if (gameObject.activeSelf) _animator.SetTrigger(trigger);
 
         if (_turningPoint != null)
             transform.position = new Vector3(_turningPoint.X, _turningPoint.Y, 0);
